@@ -16,8 +16,8 @@ const config = (): Config => {
             secrets: {
                 apiHost:
                     environment === "development"
-                        ? "http://localhost:3000"
-                        : "http://localhost:3000",
+                        ? "https://royal-events-backend.onrender.com"
+                        : "https://royal-events-backend.onrender.com",
             },
         });
     }
