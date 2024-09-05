@@ -25,5 +25,6 @@ const config = (): Config => {
 };
 
 export default config;
-//https://royal-events.onrender.com
-//"http://localhost:3090/"
+
+//https://royal-events-backend.onrender.com
+//http://localhost:3000
