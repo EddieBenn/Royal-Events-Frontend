@@ -62,7 +62,7 @@ const fetchEventData = async()=>{
     return setEvents(response.data)
   } catch (error: any) {
     if (error.response) {
-      return showErrorToast(error.response.data.message);
+      return showErrorToast(error.response.message);
     } else if (error.request) {
       return showErrorToast('Network Error. Please try again later.');
     } else {

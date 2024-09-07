@@ -67,8 +67,8 @@ function SingleEventOrganizer() {
   const fetchData = async()=>{
     try{
       const response = await getSingleEvent(eventId)
-      setEvent(response.data.data)
-      return response.data.data
+      setEvent(response.data)
+      return response.data
       }catch(error:any){
           console.log(error)
       }

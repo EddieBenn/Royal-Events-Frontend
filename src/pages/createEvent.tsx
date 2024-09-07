@@ -293,7 +293,7 @@ export const CreateEventPage = () => {
       console.log(response)
       if (response.status === 500) {
         setLoading(false);
-        return showErrorToast(response.statusText);
+        return showErrorToast(response.data.message);
       }
       if (response.status !== 200) {
         setLoading(false);

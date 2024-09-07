@@ -268,12 +268,12 @@ const ProfilePage = () => {
     try{
       setDeleteLoading(true)
       const response = await deleteProfileImage()
-      if(response.status !== 'success'){
+      if(response.data.status !== 'success'){
         setDeleteLoading(false)
         return showErrorToast(response.message)
       }
       showSuccessToast(response.message)
-      localStorage.setItem("user", JSON.stringify(response.data))
+      localStorage.setItem("user", JSON.stringify(response.data.data))
       fetchUserDataz()
       return setDeleteLoading(false)
     }catch (error: any) {
@@ -389,11 +389,11 @@ const savePicture = async()=>{
     newImage.append("profilePic", image)
     const response = await changeProfilePic(newImage)
 
-     if(response.status !== 'sucess'){
+     if(response.data.status !== 'success'){
       showErrorToast(response.data.message)
      }
      showSuccessToast(response.message)
-     localStorage.setItem("user", JSON.stringify(response.data))
+     localStorage.setItem("user", JSON.stringify(response.data.data))
      setSavePictureLoading(false)
      setLoading(false)
      setTakePictureLoading(false)
