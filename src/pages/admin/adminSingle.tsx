@@ -72,7 +72,7 @@ function SingleAdmin() {
     try{
       const response = await getSingleEvent(eventId)
       setEvent(response.data)
-      return response.data.data
+      return response.data
       }catch(error:any){
           console.log(error)
       }
