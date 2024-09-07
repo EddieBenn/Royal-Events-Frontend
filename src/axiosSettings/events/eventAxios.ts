@@ -2,7 +2,7 @@ import axios from '../../configurations/httpSetup'
 
   export const createEvent = async(body:any)=>{
     try {
-      const response = await axios.post("events/create", body);
+      const response = await axios.post("/events/create", body);
       return response;
     } catch (err: any) {
       return err.response;

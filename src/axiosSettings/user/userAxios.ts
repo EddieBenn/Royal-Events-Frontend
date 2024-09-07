@@ -51,7 +51,7 @@ export const changePassword = async(body:any)=>{
 export const changeProfilePic = async(picture:any)=>{
   try{
     const response = await axios.patch("/users/change_profile_picture", picture)
-  return response.data
+  return response
   }catch(error:any){
     return error.response
   }
@@ -67,7 +67,7 @@ export const fetchUserData = async()=>{
 export const updateUserProfile = async(body:any)=>{
   try{
     const response = await axios.patch("/users/update_profile", body)
-  return response.data
+  return response.data;
   }catch(error:any){
     return error.response
   }
@@ -75,7 +75,7 @@ export const updateUserProfile = async(body:any)=>{
 export const deleteProfileImage = async() => {
   try{
     const response = await axios.delete("/users/delete_profile_image")
-  return response.data
+  return response;
   }catch(error:any){
     return error.response
   }
@@ -84,7 +84,7 @@ export const deleteProfileImage = async() => {
 export const addBankAccount = async(body:any) => {
   try{
     const response = await axios.post("/users/add_account", body)
-  return response.data
+  return response;
   }catch(error:any){
     return error.response
   }
@@ -93,7 +93,7 @@ export const addBankAccount = async(body:any) => {
 export const getBankAccount = async() => {
   try{
     const response = await axios.get("/users/get_user_account")
-  return response.data
+  return response;
   }catch(error:any){
     return error.response
   }
@@ -102,7 +102,7 @@ export const getBankAccount = async() => {
 export const editAccountDetails = async(body:any) => {
   try{
     const response = await axios.patch("/users/edit_account", body)
-  return response
+  return response.data.bank;
   }catch(error:any){
     return error.response
   }
@@ -111,7 +111,7 @@ export const editAccountDetails = async(body:any) => {
 export const editUserProfile = async(body:any)=>{
   try{
       const response = await axios.patch("/users/edit_profile", body)
-      return response
+      return response;
   }catch(error:any){
       return error.response
   }
@@ -120,7 +120,7 @@ export const editUserProfile = async(body:any)=>{
 export const checkUserPaymentDetails = async(body:any)=>{
   try{
       const response = await axios.post("/users/check", body)
-      return response
+      return response;
   }catch(error:any){
       return error.response
   }
@@ -129,7 +129,7 @@ export const checkUserPaymentDetails = async(body:any)=>{
 export const getTicketHistory = async()=>{
   try{
       const response = await axios.get("/users/tickets")
-      return response
+      return response;
   }catch(error:any){
       return error.response
   }
@@ -138,7 +138,7 @@ export const getTicketHistory = async()=>{
 export const getEarnings = async()=>{
   try{
       const response = await axios.get("/users/earnings")
-      return response
+      return response;
   }catch(error:any){
       return error.response
   }

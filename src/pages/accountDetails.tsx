@@ -37,7 +37,7 @@ export function UserAccount() {
     if(response.status === 404){
       setGetAccount(null)
     }
-    setGetAccount(response.userBankDetails)
+    setGetAccount(response.data.userBankDetails)
     }catch(error:any){
       console.log(error.message)
     }
@@ -80,22 +80,22 @@ export function UserAccount() {
         return showErrorToast("Invalid Account Number")
       }
       const response = await addBankAccount(formData)
-      if(response.status ===`error`){
+      if(response.data.status === `error`){
         setLoading(false)
         setFormData({
           bank_name: "",
           account_name: "",
           account_number: ""
         })
-      return showErrorToast(response.message)
+      return showErrorToast(response.data.message)
       }
       setFormData({
         bank_name: "",
         account_name: "",
-        account_number: ""
+        account_number: "",
       })
-      showSuccessToast(response.message)
-      localStorage.setItem("user", JSON.stringify(response.updatedUser))
+      showSuccessToast(response.data.message)
+      localStorage.setItem("user", JSON.stringify(response.data.updatedUser))
      return fetchUserAccountDetails()
     }catch (error: any) {
       if (error.response) {
