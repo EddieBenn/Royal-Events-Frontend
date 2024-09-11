@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Button from "./Button";
 import { showErrorToast } from "../utility/toast";
@@ -16,6 +16,7 @@ interface Props {
 
 function Card(props: Props) {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 const params = useLocation()
 const [showModal3, setShowModal3] = useState(false);
   const handleEventPage = async(id:any, event_details:any)=>{
@@ -32,7 +33,7 @@ const [showModal3, setShowModal3] = useState(false);
       localStorage.setItem("event_id", id)
       localStorage.setItem("event", JSON.stringify(event_details))
       localStorage.setItem("location", params.pathname)
-      return  mainUser.role === "Admin" ? window.location.href = `/admin_single/${id}` : event_details.owner_id === mainUser.id ? window.location.href = `/organizer/single-event/${id}` : window.location.href = `/single-event/${id}`
+      return  mainUser.role === "Admin" ? window.location.href = `/admin_single/${id}` : event_details.owner_id === mainUser.id ? navigate(`/organizer/single-event/${id}`) : window.location.href = `/single-event/${id}`
     }catch(error:any){
       console.log(error)
     }
