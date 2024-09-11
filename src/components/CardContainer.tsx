@@ -10,7 +10,7 @@ const [events, setEvevnts] = useState<any[]>([]);
   const fetchData = async () => {
     try {
         const response = await axios.get('/events/upcoming_events');
-        console.log(response.data.data)
+        console.log("events", response.data.data)
        return setEvevnts(response.data.data);
     } catch (error) {
       console.error('Error fetching events:', error);
@@ -41,6 +41,7 @@ const filteredEvents = events.filter(event => {
             title={event.dataValues.title}
             description={event.dataValues.description}
             id={event.dataValues.id}
+            event_details={event.dataValues}
           />
         </div>
       ))}
